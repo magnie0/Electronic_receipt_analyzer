@@ -2,9 +2,10 @@ from PIL import Image, ImageOps
 import pytesseract
 import sys
 
-input = 'End'
+path = './data/'
+tmpFile = 'Tmp'
 def colorChange(filename):
-    img = Image.open(filename).convert('RGB')
+    img = Image.open(path+filename).convert('RGB')
 
     r, g, b = img.split()
 
@@ -15,15 +16,10 @@ def colorChange(filename):
     ))
 
     img = ImageOps.autocontrast(ImageOps.invert(ImageOps.grayscale(img)), 5)
+    #TODO tmp file save somewhere else
+    img.save(path+tmpFile+filename)
 
-    img.save(input+filename)
-
-def toText(filename):
+def ImagetoText(filename):
     colorChange(filename)
-    print(pytesseract.image_to_string(input+filename))
-    print(pytesseract.get_languages())
-
-#TODO help if no argument passed
-#ex. usage python3 imageToText.py <filename>
-filename = sys.argv[1]
-toText(filename) 
+    str = pytesseract.image_to_string(path+tmpFile+filename)
+    return str
