@@ -3,10 +3,10 @@ import pytesseract
 import sys
 
 path = './data/'
-tmpFile = 'Tmp'
+pathTmp = './data/tmp/'
+
 def colorChange(filename):
     img = Image.open(path+filename).convert('RGB')
-
     r, g, b = img.split()
 
     img = Image.merge('RGB', (
@@ -16,10 +16,9 @@ def colorChange(filename):
     ))
 
     img = ImageOps.autocontrast(ImageOps.invert(ImageOps.grayscale(img)), 5)
-    #TODO tmp file save somewhere else
-    img.save(path+tmpFile+filename)
+    img.save(pathTmp+filename)
 
 def ImagetoText(filename):
     colorChange(filename)
-    str = pytesseract.image_to_string(path+tmpFile+filename)
+    str = pytesseract.image_to_string(pathTmp+filename)
     return str
