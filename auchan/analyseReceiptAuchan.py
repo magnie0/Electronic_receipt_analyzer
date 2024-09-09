@@ -7,10 +7,10 @@
 import re
 #regexes for product lines
 name_pattern = r"(?P<name>.+)"
-code_pattern = r"(?P<code>\d{5,6}[A-Z]?)"
+code_pattern = r"(?P<code>\d{3,6}.?)" #last char sometimes is as ] we don't use the code product so it isn't important for us
 item_count_pattern = r"(?P<quantity>\d+)"
 item_price_pattern = r"-?x(?P<perItem>\d+,\d\d)"
-kg_count_pattern = r"(?P<weight>\d,\d\d\d)"
+kg_count_pattern = r"(?P<weight>\d,\d{1,3})"
 kg_price_pattern = r"x(?P<perKg>\d+,\d\d)"
 total_pattern = r"(?P<total>\d+,\d\d)"
 
@@ -25,6 +25,7 @@ def str_to_float(s):
 def Analyse_Receipt_Auchan(str):
     data = str.splitlines()
     other_lines = [] #for checking if sth isn't caught
+    print(str)
     for line in data:
         if (line == ""):
             continue
