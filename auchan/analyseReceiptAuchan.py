@@ -20,12 +20,18 @@ per_item_pattern = f"^{name_pattern}\s{code_pattern}\s{item_count_pattern}\s{ite
 #perkg
 per_kg_pattern = f"^{name_pattern}\s{code_pattern}\s{kg_count_pattern}\s{kg_price_pattern}\s{total_pattern}"
 
+#discount line
+discount_pattern = f"^Rabat\s{name_pattern}\s{code_pattern}\s-{total_pattern}"
+
+#sum
+sum_pattern = f"^SUMA\sPLN\s{total_pattern}"
+
 def str_to_float(s):
     return float(s.replace(',','.'))
-def Analyse_Receipt_Auchan(str):
-    data = str.splitlines()
+def Analyse_Receipt_Auchan(input_str):
+    data = input_str.splitlines()
     other_lines = [] #for checking if sth isn't caught
-    print(str)
+    total_sum = 0
     for line in data:
         if (line == ""):
             continue
@@ -38,6 +44,7 @@ def Analyse_Receipt_Auchan(str):
             total = str_to_float(t)
             if (round(item*peritem,2) != round(total, 2)):
                 print(f"total isn't equal {n} in {q} x {p} != {t}")
+            total_sum += total
             continue
         match = re.search(per_kg_pattern, line)
         if (match):
@@ -48,7 +55,23 @@ def Analyse_Receipt_Auchan(str):
             total = str_to_float(t)
             if (round(kg*perkg,2) != round(total, 2)):
                 print(f"total isn't equal {n} in {k} x {p} != {t}")
+            total_sum += total
             continue
+        match = re.search(discount_pattern, line)
+        if (match):
+            n, c, p = match.groups()
+            print("znizka: "+n+"  "+p)
+            total = str_to_float(p)
+            total_sum -= total
+            continue
+        match = re.search(sum_pattern, line)
+        if (match):
+            t = match.group(1)
+            total = str_to_float(t)
+            print("laczna suma: "+t)
+
+
         other_lines.append(line)
+    print("suma: "+str(round(total_sum,2)))
     print("===============Other found lines")
     print("\n".join(other_lines))
