@@ -13,7 +13,7 @@ class LoadCategories():
         self.create_layout()
 
         # Run the app with the layout containing both spinners
-        runTouchApp(self.layout_page)
+        #runTouchApp(self.layout_page)
 
     def load_excel(self, name_file, name_sheet):
         #read excel file

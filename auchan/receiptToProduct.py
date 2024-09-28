@@ -5,6 +5,7 @@
 #weight
 #per_kg_pattern = "^(?P<name>.+)\s(?P<code>\d{6}[A-Z]?)\s(?P<weight>\d,\d\d\d)\s-?x(?P<perKg>\d+,\d\d)\s(?P<total>\d+,\d\d)"
 import re
+from utils.product import Product
 #regexes for product lines
 name_pattern = r"(?P<name>.+)"
 code_pattern = r"(?P<code>\d{3,6}.?)" #last char sometimes is as ] we don't use the code product so it isn't important for us
@@ -28,10 +29,12 @@ sum_pattern = f"^SUMA\sPLN\s{total_pattern}"
 
 def str_to_float(s):
     return float(s.replace(',','.'))
-def Analyse_Receipt_Auchan(input_str):
+def Receipt_To_Product(input_str, date):
     data = input_str.splitlines()
     other_lines = [] #for checking if sth isn't caught
     total_sum = 0
+    products = []
+    sum_from_receipt = 0
     for line in data:
         if (line == ""):
             continue
@@ -45,6 +48,7 @@ def Analyse_Receipt_Auchan(input_str):
             if (round(item*peritem,2) != round(total, 2)):
                 print(f"total isn't equal {n} in {q} x {p} != {t}")
             total_sum += total
+            products.append(Product(date, n,q,p,t))
             continue
         match = re.search(per_kg_pattern, line)
         if (match):
@@ -56,6 +60,7 @@ def Analyse_Receipt_Auchan(input_str):
             if (round(kg*perkg,2) != round(total, 2)):
                 print(f"total isn't equal {n} in {k} x {p} != {t}")
             total_sum += total
+            products.append(Product(date,n,k,p,t))
             continue
         match = re.search(discount_pattern, line)
         if (match):
@@ -63,15 +68,19 @@ def Analyse_Receipt_Auchan(input_str):
             print("znizka: "+n+"  "+p)
             total = str_to_float(p)
             total_sum -= total
+            #TODO Add handling reducted price
             continue
         match = re.search(sum_pattern, line)
         if (match):
             t = match.group(1)
-            total = str_to_float(t)
+            sum_from_receipt = str_to_float(t)
             print("laczna suma: "+t)
 
 
         other_lines.append(line)
-    print("suma: "+str(round(total_sum,2)))
+    print("suma_dodana: "+str(round(total_sum,2)))
+    print("suma_z_paragonu: "+str(round(sum_from_receipt,2)))
     print("===============Other found lines")
     print("\n".join(other_lines))
+
+    return products
