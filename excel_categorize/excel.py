@@ -1,17 +1,19 @@
 import pandas as pd
-from kivy.base import runTouchApp
+#from kivy.base import runTouchApp
+from kivy.uix.screenmanager import ScreenManager, Screen
 from kivy.uix.boxlayout import BoxLayout
 from kivy.uix.spinner import Spinner
 from kivy.uix.label import Label
 from kivy.uix.textinput import TextInput
 from kivy.uix.button import Button
 
-class LoadCategories():
-    def __init__(self, name_file, name_sheet):
+class LoadCategoriesScreen(Screen):
+    def __init__(self, name_file, name_sheet, **kwargs):
+        super(LoadCategoriesScreen, self).__init__(**kwargs)
         self.load_excel(name_file, name_sheet)
         self.layout_page = BoxLayout(orientation='vertical')
         self.create_layout()
-
+        self.add_widget(self.layout_page)
         # Run the app with the layout containing both spinners
         #runTouchApp(self.layout_page)
 
@@ -100,11 +102,11 @@ class LoadCategories():
         info = BoxLayout(orientation='vertical',size_hint=(1, 0.3))
         l1 = Label(text='Nie rozpoznany produkt!')
         l2 = Label(text='NazwazParagonu')
-        t = TextInput(text='temp', multiline=False)
+        receipt_text = TextInput(text='temp', multiline=False)
         info.add_widget(l1)
         info.add_widget(l2)
-        info.add_widget(t)
-
+        info.add_widget(receipt_text)
+        self.receipt_text = receipt_text
         self.layout_page.add_widget(info)
 
         self.layout_page.add_widget(self.layout_products)
@@ -116,8 +118,11 @@ class LoadCategories():
             print(f"Code: {self.d_cat012_code[triplet]}")
         button.bind(state=callback)
         self.layout_page.add_widget(button)
+    def switch_to_CreateCategories(self, instance):
+        self.manager.current = 'CreateCategories'
 
 
 
-categories = LoadCategories('Rozpisanie zakupów .xlsx','Pogląd Mappingu')
+
+#categories = LoadCategories('./excel_categorize/Rozpisanie zakupów .xlsx','Pogląd Mappingu')
 
