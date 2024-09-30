@@ -17,7 +17,7 @@ def create_empty(excel_file_path, name_sheet, name_database):
             dictionary_categories[cat0][cat1] = dict()
 
         if cat2 not in dictionary_categories[cat0][cat1]:
-            dictionary_categories[cat0][cat1][cat2] = dict()
+            dictionary_categories[cat0][cat1][cat2] = []
     
 
     json_object = json.dumps(dictionary_categories, ensure_ascii=False, indent=4).encode('utf8')

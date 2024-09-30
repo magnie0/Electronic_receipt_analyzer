@@ -1,8 +1,9 @@
 
 class Product:
-    def __init__(self, date, item, quant, price, total):
+    def __init__(self, date, item, c, quant, price, total):
         self.date = date
         self.item = item
+        self.code = c
         self.quant = quant
         self.price = price
         self.total = total

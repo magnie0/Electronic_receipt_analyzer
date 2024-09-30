@@ -48,7 +48,7 @@ def Receipt_To_Product(input_str, date):
             if (round(item*peritem,2) != round(total, 2)):
                 print(f"total isn't equal {n} in {q} x {p} != {t}")
             total_sum += total
-            products.append(Product(date, n,q,p,t))
+            products.append(Product(date, n,c,q,p,t))
             continue
         match = re.search(per_kg_pattern, line)
         if (match):
@@ -60,7 +60,7 @@ def Receipt_To_Product(input_str, date):
             if (round(kg*perkg,2) != round(total, 2)):
                 print(f"total isn't equal {n} in {k} x {p} != {t}")
             total_sum += total
-            products.append(Product(date,n,k,p,t))
+            products.append(Product(date,n,c,k,p,t))
             continue
         match = re.search(discount_pattern, line)
         if (match):
