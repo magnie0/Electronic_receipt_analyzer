@@ -11,16 +11,16 @@ filename = sys.argv[1]
 # str = ImagetoText(filename)
 # Analyse_Receipt_Auchan(str,'2024-09-13')
 
-from excel_categorize.excel import LoadCategoriesScreen
+from screens.excel import LoadCategoriesScreen
+from screens.startAnalyseAuchan import AuchanAnalyseScreen
 class MyLayoutSwitchApp(App):
     def build(self):
         # Create the screen manager
         sm = ScreenManager()
-
+        sm.add_widget(AuchanAnalyseScreen(name='AuchanAnalyseScreen'))
         # Add different layout screens
-        sm.add_widget(LoadCategoriesScreen('./excel_categorize/Rozpisanie zakupów .xlsx','Pogląd Mappingu',name='CreateCategories'))
-#categories = LoadCategories('./excel_categorize/Rozpisanie zakupów .xlsx','Pogląd Mappingu')
-
+        sm.add_widget(LoadCategoriesScreen('./data/Rozpisanie zakupów .xlsx','Pogląd Mappingu',name='LoadCategoriesScreen'))
+        
         return sm
 
 # Run the app
