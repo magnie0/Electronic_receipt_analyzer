@@ -1,125 +1,125 @@
 {
     "Jedzenie": {
         "Napoje bezalkoholowe": {
-            "Piwo zero": {},
-            "Soki": {},
-            "Napoje gazowane": {},
-            "Pozostałe napoje ": {}
+            "Piwo zero": [],
+            "Soki": [],
+            "Napoje gazowane": [],
+            "Pozostałe napoje ": []
         },
         "Alkohole": {
-            "Cydr": {},
-            "Wino": {},
-            "Nalewki": {},
-            "Wódki": {},
-            "Whiskey": {},
-            "Piwo": {}
+            "Cydr": [],
+            "Wino": [],
+            "Nalewki": [],
+            "Wódki": [],
+            "Whiskey": [],
+            "Piwo": []
         },
         "Nabiał i jajka": {
-            "Jajka": {},
-            "Jogurty": {},
-            "Smarowidła": {},
-            "Masło": {},
-            "Mleko": {},
-            "Sery": {},
-            "Śmietana": {}
+            "Jajka": [],
+            "Jogurty": [],
+            "Smarowidła": [],
+            "Masło": [],
+            "Mleko": [],
+            "Sery": [],
+            "Śmietana": []
         },
         "Pieczywo": {
-            "Chleb i bułki": {},
-            "Tortille": {}
+            "Chleb i bułki": [],
+            "Tortille": []
         },
         "Owoce i warzywa": {
-            "Owoce": {},
-            "Warzywa": {},
-            "Przetwory i konserwowane warzywa": {}
+            "Owoce": [],
+            "Warzywa": [],
+            "Przetwory i konserwowane warzywa": []
         },
         "Przyprawy i dodatki": {
-            "Przyprawy ": {},
-            "Sosy": {},
-            "Suszone dodatki": {},
-            "Oleje i oliwy": {}
+            "Przyprawy ": [],
+            "Sosy": [],
+            "Suszone dodatki": [],
+            "Oleje i oliwy": []
         },
         "Mrożonki": {
-            "Warzywa mrożone": {},
-            "Frytki": {},
-            "Pozostałe Mrożonki": {}
+            "Warzywa mrożone": [],
+            "Frytki": [],
+            "Pozostałe Mrożonki": []
         },
         "Przekąski": {
-            "Czekolady": {},
-            "Ciastka": {},
-            "Chipsy": {},
-            "Pozostałe słodkie": {},
-            "Pozostałe słone": {}
+            "Czekolady": [],
+            "Ciastka": [],
+            "Chipsy": [],
+            "Pozostałe słodkie": [],
+            "Pozostałe słone": []
         },
         "Dania Gotowe": {
-            "Sosy do makaronów": {}
+            "Sosy do makaronów": []
         },
         "Mięso i Ryby": {
-            "Mięso": {},
-            "Wędlina ": {},
-            "Ryby": {}
+            "Mięso": [],
+            "Wędlina ": [],
+            "Ryby": []
         },
         "Produkty sypkie i suche": {
-            "Kasze": {},
-            "Ryż": {},
-            "Makarony": {},
-            "Cukier": {},
-            "Strączkowe": {},
-            "Pozostałe sypkie": {}
+            "Kasze": [],
+            "Ryż": [],
+            "Makarony": [],
+            "Cukier": [],
+            "Strączkowe": [],
+            "Pozostałe sypkie": []
         },
         "TooGoodToGO": {
-            "foodsi": {},
-            "TooGoodToGo": {}
+            "foodsi": [],
+            "TooGoodToGo": []
         },
         "Jedzenie na mieście/zamawianie jedzenia": {
-            "Jedzenie na mieście/zamawianie jedzenia": {}
+            "Jedzenie na mieście/zamawianie jedzenia": []
         }
     },
     "Mieszkanie": {
         "Rachunki": {
-            "Czynsz": {},
-            "Prąd": {},
-            "Gaz": {},
-            "Korekty": {},
-            "Internet": {}
+            "Czynsz": [],
+            "Prąd": [],
+            "Gaz": [],
+            "Korekty": [],
+            "Internet": []
         },
         "Wyposażenie": {
-            "Meble": {},
-            "Agd": {},
-            "Rośliny": {},
-            "Konserwacja": {},
-            "Przybory kuchenne": {},
-            "Pościel": {},
-            "Naprawy": {},
-            "Ulepszenia": {}
+            "Meble": [],
+            "Agd": [],
+            "Rośliny": [],
+            "Konserwacja": [],
+            "Przybory kuchenne": [],
+            "Pościel": [],
+            "Naprawy": [],
+            "Ulepszenia": []
         },
         "Ubezpieczenie": {
-            "Ubezpieczenie mieszkania": {}
+            "Ubezpieczenie mieszkania": []
         },
         "Środki czystości i chemia": {
-            "Chemia": {},
-            "Środki czystości": {}
+            "Chemia": [],
+            "Środki czystości": []
         }
     },
     "Mniejsze wydatki": {
         "Transport": {
-            "Carsharing": {},
-            "Taxi": {}
+            "Carsharing": [],
+            "Taxi": []
         },
         "Ubezpieczenia": {
-            "Ubezpieczenia na życie": {},
-            "Ubezpieczenia na wakacje": {}
+            "Ubezpieczenia na życie": [],
+            "Ubezpieczenia na wakacje": []
         },
         "Suplementy": {
-            "Suplementy": {}
+            "Suplementy": []
         },
         "Rozrywka": {
-            "Bilety na wspólne wyjścia ": {},
-            "Zakupy do wspólnych projektów": {},
-            "Subskrypcje ": {},
-            "Planszówki": {}
+            "Bilety na wspólne wyjścia ": [],
+            "Zakupy do wspólnych projektów": [],
+            "Subskrypcje ": [],
+            "Planszówki": []
         },
         "Prezenty": {
-            "Prezenty": {}
+            "Prezenty": []
         }
     }
 }

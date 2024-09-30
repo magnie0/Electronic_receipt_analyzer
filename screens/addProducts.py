@@ -84,36 +84,59 @@ class LoadCategoriesScreen(Screen):
         layout_products.add_widget(self.spinner1)
         layout_products.add_widget(self.spinner2)
 
-        info = BoxLayout(orientation='vertical',size_hint=(1, 0.3))
+        info = BoxLayout(orientation='vertical',size_hint=(1, 0.5))
         l1 = Label(text='Nie rozpoznany produkt!')
-        l2 = Label(text='NazwazParagonu')
+        l2 = Label(text='Wpisz z paragonu całość lub część która pozwala zinterpretować produkt: ')
+        self.on_receipt = Label(text='temp')
         receipt_text = TextInput(text='temp', multiline=False)
         info.add_widget(l1)
         info.add_widget(l2)
+        info.add_widget(self.on_receipt)
         info.add_widget(receipt_text)
         self.receipt_text = receipt_text
         self.layout_page.add_widget(info)
 
         self.layout_page.add_widget(layout_products)
+        buttons = BoxLayout(orientation='horizontal')
+        button1 = Button(text='Dodaj',size=(200, 44),size_hint=(None, None))
+        button1.bind(on_press=self.callback)
+        button2 = Button(text='Ignore',size=(200, 44),size_hint=(None, None))
+        button2.bind(on_press=self.ignore)
+        button3 = Button(text='Quit',size=(200, 44),size_hint=(None, None))
+        button3.bind(on_press=self.quitAdding)
 
-        button = Button(text='Dodaj',size=(200, 44),size_hint=(None, None),pos_hint={'top': 1})
-        
-        button.bind(on_press=self.callback)
-        self.layout_page.add_widget(button)
+        buttons.add_widget(button1)
+        buttons.add_widget(button2)
+        buttons.add_widget(button3)
+
+        self.layout_page.add_widget(buttons)
     def callback(self, instance):
         print(f"The button pressed {self.spinner0.text} {self.spinner1.text} {self.spinner2.text}")
         triplet = (self.spinner0.text, self.spinner1.text, self.spinner2.text)
         print(f"triplet: {triplet}")
         self.database[self.spinner0.text][self.spinner1.text][self.spinner2.text].append(self.receipt_text.text)
+        self.handle_next_product()
+
+    def ignore(self,instance):
+        self.handle_next_product()
+    def quitAdding(self, instance):
+        self.save_database()
+        self.manager.current = 'AuchanAnalyseScreen'
+
+    def handle_next_product(self):
         if self.new_products.empty():
             self.save_database()
             self.manager.current = 'AuchanAnalyseScreen'
         else:
             self.receipt_text.text = self.new_products.get()
+            self.on_receipt.text = self.receipt_text.text
+
     def Update_Values_To_Categorise(self, new_products):
         self.new_products = new_products
         if self.new_products: #check if empty
             self.receipt_text.text = self.new_products.get()
+            self.on_receipt.text = self.receipt_text.text
+
 
 
 

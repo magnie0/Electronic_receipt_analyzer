@@ -12,7 +12,7 @@ class Product:
         return f"Product:{self.item}"
 
     def Get_Name(self):
-        self.item
+        return self.item
 
     def Set_Category(self, kat0, kat1, kat2):
         self.kat0 = kat0

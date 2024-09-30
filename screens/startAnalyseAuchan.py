@@ -21,11 +21,12 @@ class AuchanAnalyseScreen(Screen):
         LoadLayout.add_widget(self.LoadFileButton)
         LoadLayout.add_widget(self.LoadFileLabel)
         self.layout.add_widget(LoadLayout)
-        self.ReloadDatabaseButton = Button(text="ReloadDatabase", on_press=self.load_database)
+        self.ReloadDatabaseButton = Button(text="ReloadDatabase", on_press=self.check_database)
         self.layout.add_widget(self.ReloadDatabaseButton)
-        self.AnalyseButton = Button(text="Analyse", on_press=self.switch_to_LoadCategoriesScreen)
-        self.AnalyseButton.disabled = True
-        self.layout.add_widget(self.AnalyseButton)
+        self.SaveResult = Button(text="SaveResult", on_press=self.saveResult)
+        self.ReloadDatabaseButton.disabled = True
+        self.SaveResult.disabled = True
+        self.layout.add_widget(self.SaveResult)
         self.add_widget(self.layout)
 
         self.name_file = 'auchan.json' #TODO change operations regarding database
@@ -36,35 +37,50 @@ class AuchanAnalyseScreen(Screen):
         date = '2024-09-13'
     
         self.products = Receipt_To_Product(input_str,date)#without set categories
-        for p in self.products:
-            p.Set_Category('','','')
-            print(p.To_Array())
-
-        self.AnalyseButton.disabled = False
+        self.ReloadDatabaseButton.disabled = False
         self.LoadFileLabel.text = 'Loaded'
 
     
-    def load_database(self, instance):
+    def load_database(self):
         with open('./database/'+self.name_file, 'r') as file:
             self.database = json.load(file)
         print(self.database)
+        print('========================')
+        self.flatten_dict()
 
-    def flatten_dict(d, parent_key=()):
-        items = []
-        for k, v in d.items():
-            new_key = parent_key + (k,)  # Build the new tuple key
-            if isinstance(v, dict):  # If the value is a dictionary, recursively flatten it
-                items.extend(flatten_dict(v, new_key).items())
-            else:
-                items.append((new_key, v))  # Add the new key-value pair
-        return dict(items)
+    def flatten_dict(self):
+        self.flatten_database = dict()
+        for cat0, v0 in self.database.items():
+            for cat1, v1 in v0.items():
+                for cat2, v2 in v1.items():
+                    for element in v2:
+                        triplet = (cat0, cat1, cat2)
+                        self.flatten_database[element] = triplet
+        print(self.flatten_database)
 
-    def switch_to_LoadCategoriesScreen(self, instance):
+    def part_identifies_product(self, name):
+        for part in name.split():
+            if part in self.flatten_database:
+                return True 
+        return False
+
+    def check_database(self, instance):
+        self.load_database()
         loadcategories_screen = self.manager.get_screen('LoadCategoriesScreen')
         q = Queue()
-        q.put('CYTRYNY')
-        q.put('SOK')
+        for p in self.products:
+            name = p.Get_Name()
+            if name not in self.flatten_database and not self.part_identifies_product(name):
+                q.put(name)
 
-        loadcategories_screen.Update_Values_To_Categorise(q)
-        
-        self.manager.current = 'LoadCategoriesScreen'
+
+        if not q.empty():
+            loadcategories_screen.Update_Values_To_Categorise(q)
+            self.manager.current = 'LoadCategoriesScreen'
+        else:
+            self.AnalyseButton.disabled = False
+
+
+
+    def saveResult(self, instance):
+        print("Here will be saving")
