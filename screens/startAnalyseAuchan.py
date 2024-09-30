@@ -78,7 +78,7 @@ class AuchanAnalyseScreen(Screen):
             loadcategories_screen.Update_Values_To_Categorise(q)
             self.manager.current = 'LoadCategoriesScreen'
         else:
-            self.AnalyseButton.disabled = False
+            self.SaveResult.disabled = False
 
 
 

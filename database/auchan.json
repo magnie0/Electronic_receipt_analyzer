@@ -2,8 +2,14 @@
     "Jedzenie": {
         "Napoje bezalkoholowe": {
             "Piwo zero": [],
-            "Soki": [],
-            "Napoje gazowane": [],
+            "Soki": [
+                "SOK"
+            ],
+            "Napoje gazowane": [
+                "NAPOJ KOFOL",
+                "MUSUJ.JABL",
+                "MUS JAB-PO"
+            ],
             "Pozostałe napoje ": []
         },
         "Alkohole": {
@@ -15,48 +21,100 @@
             "Piwo": []
         },
         "Nabiał i jajka": {
-            "Jajka": [],
-            "Jogurty": [],
-            "Smarowidła": [],
-            "Masło": [],
-            "Mleko": [],
-            "Sery": [],
-            "Śmietana": []
+            "Jajka": [
+                "JAJA WOLNY"
+            ],
+            "Jogurty": [
+                "MASLANKA",
+                "JOGURT",
+                "JOGURT"
+            ],
+            "Smarowidła": [
+                "SEREK NATU"
+            ],
+            "Masło": [
+                "MASLO"
+            ],
+            "Mleko": [
+                "MLEKO"
+            ],
+            "Sery": [
+                "SER",
+                "MOZARELLA Z"
+            ],
+            "Śmietana": [
+                "SMIETANKA"
+            ],
+            "Twaróg": [
+                "TWAROG POLTL"
+            ]
         },
         "Pieczywo": {
             "Chleb i bułki": [],
-            "Tortille": []
+            "Tortille": [
+                "TORTILLA"
+            ]
         },
         "Owoce i warzywa": {
-            "Owoce": [],
-            "Warzywa": [],
+            "Owoce": [
+                "CYTRYNA",
+                "BANAN",
+                "JABLKA"
+            ],
+            "Warzywa": [
+                "CEBULA",
+                "OGOREK",
+                "KAPUSTA",
+                "MARCHEW",
+                "CZOSNEK",
+                "PAPRYKA CZE",
+                "POMIDOR",
+                "SALAT"
+            ],
             "Przetwory i konserwowane warzywa": []
         },
         "Przyprawy i dodatki": {
             "Przyprawy ": [],
             "Sosy": [],
             "Suszone dodatki": [],
-            "Oleje i oliwy": []
+            "Oleje i oliwy": [],
+            "Pasty": [
+                "HUMMUS"
+            ]
         },
         "Mrożonki": {
             "Warzywa mrożone": [],
-            "Frytki": [],
-            "Pozostałe Mrożonki": []
+            "Frytki": [
+                "FRYTKI"
+            ],
+            "Pozostałe Mrożonki": [
+                "ZLOTE PALU"
+            ]
         },
         "Przekąski": {
-            "Czekolady": [],
+            "Czekolady": [
+                "CZEKOLADA"
+            ],
             "Ciastka": [],
             "Chipsy": [],
-            "Pozostałe słodkie": [],
+            "Pozostałe słodkie": [
+                "RYZ WISNI"
+            ],
             "Pozostałe słone": []
         },
         "Dania Gotowe": {
             "Sosy do makaronów": []
         },
         "Mięso i Ryby": {
-            "Mięso": [],
+            "Mięso": [
+                "UDO Z KURC"
+            ],
             "Wędlina ": [],
-            "Ryby": []
+            "Ryby": [],
+            "Kiełbasa": [
+                "KIELBASA",
+                "KIE[BASA -"
+            ]
         },
         "Produkty sypkie i suche": {
             "Kasze": [],
@@ -87,7 +145,9 @@
             "Agd": [],
             "Rośliny": [],
             "Konserwacja": [],
-            "Przybory kuchenne": [],
+            "Przybory kuchenne": [
+                ")REKAWICA KUC"
+            ],
             "Pościel": [],
             "Naprawy": [],
             "Ulepszenia": []
@@ -96,8 +156,15 @@
             "Ubezpieczenie mieszkania": []
         },
         "Środki czystości i chemia": {
-            "Chemia": [],
-            "Środki czystości": []
+            "Chemia": [
+                "PLYN DO NAC"
+            ],
+            "Środki czystości": [
+                "SZAMPON",
+                "PAPIER",
+                "ZESTAW PL",
+                "RECZNIK"
+            ]
         }
     },
     "Mniejsze wydatki": {
