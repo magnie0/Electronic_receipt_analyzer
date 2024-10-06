@@ -126,7 +126,8 @@
                 "LIMONKA",
                 "SLIWKA LUZ",
                 "KIWI",
-                "GRANAT"
+                "GRANAT",
+                "POMARA CZA"
             ],
             "Warzywa": [
                 "CEBULA",
@@ -332,7 +333,8 @@
             ],
             "Orzechy": [
                 "RODZYNKI R",
-                "DAKTYLE DA"
+                "DAKTYLE DA",
+                "MIESZANKA O"
             ]
         },
         "TooGoodToGO": {
@@ -384,6 +386,9 @@
             "Naprawy": [],
             "Ulepszenia": [
                 "LAPKA NA MU"
+            ],
+            "Dodatki": [
+                "SW.PIE K.120/58 LA"
             ]
         },
         "Ubezpieczenie": {

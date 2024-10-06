@@ -44,7 +44,12 @@ class AuchanAnalyseScreen(Screen):
 
     def load_file(self, instance):
         input_str = ImagetoText(self.file_name.text)
-        date = '2024-09-13'
+        print(self.file_name.text+"=================")
+        last_dot_index = self.file_name.text.rfind('.')
+        date = '1970-01-01'
+        if last_dot_index != -1:
+            date = self.file_name.text[:last_dot_index]
+        print(date)
         self.products = Receipt_To_Product(input_str,date)#without set categories
         self.ReloadDatabaseButton.disabled = False
         self.LoadFileLabel.text = 'Loaded'
