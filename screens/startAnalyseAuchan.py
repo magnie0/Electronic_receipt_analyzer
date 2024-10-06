@@ -6,7 +6,7 @@ from kivy.uix.label import Label
 from queue import Queue
 from utils.imageToText import ImagetoText
 from auchan.receiptToProduct import Receipt_To_Product
-import json
+from database.operationsDatabase import DatabaseProducts
 class AuchanAnalyseScreen(Screen):
     def __init__(self, **kwargs):
         super(AuchanAnalyseScreen, self).__init__(**kwargs)
@@ -35,7 +35,8 @@ class AuchanAnalyseScreen(Screen):
         
         self.add_widget(self.layout)
 
-        self.name_file = 'auchan.json' #TODO change operations regarding database
+        self.database = DatabaseProducts('auchan.json')
+
 
     def change_input_file_listener(self, instane, text):
         self.LoadFileLabel.text = 'Not loaded'
@@ -52,58 +53,19 @@ class AuchanAnalyseScreen(Screen):
         self.ReloadDatabaseButton.disabled = False
         self.LoadFileLabel.text = 'Loaded'
 
-    
-    def load_database(self):
-        with open('./database/'+self.name_file, 'r') as file:
-            self.database = json.load(file)
-        self.flatten_dict()
-
-    def flatten_dict(self):
-        self.flatten_database = dict()
-        for cat0, v0 in self.database.items():
-            for cat1, v1 in v0.items():
-                for cat2, v2 in v1.items():
-                    for element in v2:
-                        triplet = (cat0, cat1, cat2)
-                        self.flatten_database[element] = triplet
-
-    def part_identifies_product(self, name):
-        for part in name.split():
-            if part in self.flatten_database:
-                return True 
-        return False
-    
-    def get_triple(self, name):
-        if name in self.flatten_database:
-            return self.flatten_database[name]
-        for part in name.split():
-            if part in self.flatten_database:
-                return self.flatten_database[part]
-        
-
     def check_database(self, instance):
-        self.load_database()
-        loadcategories_screen = self.manager.get_screen('LoadCategoriesScreen')
-        q = Queue()
-        for p in self.products:
-            name = p.Get_Name()
-            if name not in self.flatten_database and not self.part_identifies_product(name):
-                q.put(name)
-
-
+        q = self.database.Check_database_for_products(self.products)
         if not q.empty():
+            loadcategories_screen = self.manager.get_screen('LoadCategoriesScreen')
             loadcategories_screen.Update_Values_To_Categorise(q)
             self.manager.current = 'LoadCategoriesScreen'
         else:
             self.SaveResult.disabled = False
             for p in self.products:
                 name = p.Get_Name()
-                cat0, cat1, cat2 = self.get_triple(name)
+                cat0, cat1, cat2 = self.database.Get_categories(name)
                 p.Set_Category(cat0, cat1, cat2)
                 print(p.To_Array())
-
-
-
 
     def saveResult(self, instance):
         print("Saving")
@@ -115,7 +77,6 @@ class AuchanAnalyseScreen(Screen):
         workbook = Workbook()
         headers = ['date','cat0','cat1','cat2','name_on_receipt','quant','price','total']
         page.append(headers) # write the headers to the first line
-        #data = [['description1','date1','time1','location1','latitude1','longitude1']]
         for p in self.products:
             page.append(p.To_Array())
         wb.save(filename = workbook_name)

@@ -7,35 +7,27 @@ from kivy.uix.spinner import Spinner
 from kivy.uix.label import Label
 from kivy.uix.textinput import TextInput
 from kivy.uix.button import Button
-
+from database.operationsDatabase import DatabaseProducts
 class LoadCategoriesScreen(Screen):
     def __init__(self, name_file, **kwargs):
         super(LoadCategoriesScreen, self).__init__(**kwargs)
-        self.name_file = name_file
-        self.load_database()
+        self.database = DatabaseProducts(name_file)
         self.layout_page = BoxLayout(orientation='vertical')
         self.create_layout()
         self.add_widget(self.layout_page)
         self.new_products = []
         # Run the app with the layout containing both spinners
         #runTouchApp(self.layout_page)
-
-    def load_database(self):
-        with open('./database/'+self.name_file, 'r') as file:
-            self.database = json.load(file)
-
-
-    def save_database(self):
-        json_object = json.dumps(self.database, ensure_ascii=False, indent=4).encode('utf8')
-        with open('./database/'+self.name_file, 'w') as file:
-            file.write(json_object.decode())
         
     def create_layout(self):
         # Create a BoxLayout to hold both spinners
         #self.layout_products = BoxLayout(orientation='horizontal', spacing=10,size_hint=(1, .7),pos_hint={'top': 1})
         layout_products = BoxLayout(orientation='horizontal', spacing=10)
         # First Spinner (main category)
-        cat0 = sorted(list(self.database.keys()))
+ 
+        tempDatabase = self.database.Get_database()
+
+        cat0 = sorted(list(tempDatabase.keys()))
         current_cat0 = cat0[0]
         self.spinner0 = Spinner(
             text=current_cat0,
@@ -44,7 +36,7 @@ class LoadCategoriesScreen(Screen):
             size=(200, 44),
             pos_hint={'top': 1})
 
-        cat1 = sorted(list(self.database[current_cat0].keys()))
+        cat1 = sorted(list(tempDatabase[current_cat0].keys()))
         current_cat1 = cat1[0]
         # Second Spinner (dependent on first spinner's value)
         self.spinner1 = Spinner(
@@ -54,7 +46,7 @@ class LoadCategoriesScreen(Screen):
             size=(200, 44),
             pos_hint={'top': 1})
         
-        cat2 = sorted(list(self.database[current_cat0][current_cat1].keys()))
+        cat2 = sorted(list(tempDatabase[current_cat0][current_cat1].keys()))
         current_cat2 = cat2[0]
         self.spinner2 = Spinner(
             text=current_cat2,
@@ -64,13 +56,13 @@ class LoadCategoriesScreen(Screen):
             pos_hint={'top': 1})
 
         def update_spinner1(spinner, text):
-            cat1 = sorted(self.database[text].keys())
+            cat1 = sorted(tempDatabase[text].keys())
             self.spinner1.values = cat1
             # Reset the second spinner text when first spinner changes
             self.spinner1.text = self.spinner1.values[0]
         def update_spinner2(spinner, text):
             cat0 = self.spinner0.text
-            cat2 = sorted(self.database[cat0][text].keys())
+            cat2 = sorted(tempDatabase[cat0][text].keys())
             self.spinner2.values = cat2
             # Reset the second spinner text when first spinner changes
             self.spinner2.text = self.spinner2.values[0]
@@ -114,18 +106,18 @@ class LoadCategoriesScreen(Screen):
         print(f"The button pressed {self.spinner0.text} {self.spinner1.text} {self.spinner2.text}")
         triplet = (self.spinner0.text, self.spinner1.text, self.spinner2.text)
         print(f"triplet: {triplet}")
-        self.database[self.spinner0.text][self.spinner1.text][self.spinner2.text].append(self.receipt_text.text)
+        self.database.Get_database()[self.spinner0.text][self.spinner1.text][self.spinner2.text].append(self.receipt_text.text)
         self.handle_next_product()
 
     def ignore(self,instance):
         self.handle_next_product()
     def quitAdding(self, instance):
-        self.save_database()
+        self.database.Save_database()
         self.manager.current = 'AuchanAnalyseScreen'
 
     def handle_next_product(self):
         if self.new_products.empty():
-            self.save_database()
+            self.database.Save_database()
             self.manager.current = 'AuchanAnalyseScreen'
         else:
             self.receipt_text.text = self.new_products.get()
