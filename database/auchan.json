@@ -1,36 +1,84 @@
 {
     "Jedzenie": {
         "Napoje bezalkoholowe": {
-            "Piwo zero": [],
+            "Woda": [
+                "WODA"
+            ],
+            "Piwo zero": [
+                "PIwWO MALIN",
+                "PIwWO TROPIK",
+                "PIwWO 0% WA",
+                "PIwO LEMONZ",
+                "PIwWO RADLE",
+                "PIwO LECH F",
+                "PIwWO ACTIV",
+                "PIwWO 0% LEC",
+                "PIwWO",
+                "PIwO",
+                "PIWO 0% WA"
+            ],
             "Soki": [
                 "SOK"
             ],
             "Napoje gazowane": [
                 "NAPOJ KOFOL",
                 "MUSUJ.JABL",
-                "MUS JAB-PO"
+                "MUS JAB-PO",
+                "NAPOJ GAZ C",
+                "NAPOJ GAZ",
+                "NAPOJ GAZ. P"
             ],
-            "Pozostałe napoje ": []
+            "Pozostałe napoje ": [],
+            "Opakowania zwrotne": [
+                "BUTELKA 0,5L (1 PL",
+                "BUTELKA 0,5L ( 1 P",
+                "BUTELKA 0,5L (1PLN",
+                "BUTELKA_0,5L.(50GR",
+                "BUTELKA 0,5L (1PLN"
+            ]
         },
         "Alkohole": {
-            "Cydr": [],
-            "Wino": [],
-            "Nalewki": [],
+            "Cydr": [
+                "CYDR ROYAL",
+                "CYDR POLSKI",
+                "CYDR BURSZT",
+                ")CYDR TERR",
+                "PERRY BURSZ"
+            ],
+            "Wino": [
+                "WINI ZAMOJ.WIS.0,7",
+                "WINIR.ZAM.ROSE.0,7"
+            ],
+            "Nalewki": [
+                "LIKIER AUCH"
+            ],
             "Wódki": [],
             "Whiskey": [],
             "Piwo": []
         },
         "Nabiał i jajka": {
             "Jajka": [
-                "JAJA WOLNY"
+                "JAJA"
             ],
             "Jogurty": [
                 "MASLANKA",
-                "JOGURT",
                 "JOGURT"
             ],
+            "Skyry": [
+                "JOGURT SKY"
+            ],
             "Smarowidła": [
-                "SEREK NATU"
+                "SEREK NATU",
+                "SEREK Z PR",
+                "SEREK SZCZ",
+                "TWOJ SMAK",
+                "SEREK SMIE",
+                "SEREK ZE S",
+                "SEREK Z PA",
+                "SEREK Z KU",
+                "SEREK POMI",
+                "SEREK ZIOLO",
+                "SEREK Z PO"
             ],
             "Masło": [
                 "MASLO"
@@ -40,17 +88,26 @@
             ],
             "Sery": [
                 "SER",
-                "MOZARELLA Z"
+                "MOZARELLA Z",
+                "MOZZARELLA",
+                "CAMEMBERT",
+                "GOUDA Z CZ"
             ],
             "Śmietana": [
                 "SMIETANKA"
             ],
             "Twaróg": [
-                "TWAROG POLTL"
+                "TWAROG POLTL",
+                "SEREK WIEJ",
+                "TWAROG MIEL"
             ]
         },
         "Pieczywo": {
-            "Chleb i bułki": [],
+            "Chleb i bułki": [
+                "CHLEB ZYTN",
+                "BOSTON HAM",
+                "BAGIETKA Z"
+            ],
             "Tortille": [
                 "TORTILLA"
             ]
@@ -60,7 +117,16 @@
                 "CYTRYNA",
                 "BANAN",
                 "JABLKA",
-                "BOROWKA"
+                "BOROWKA",
+                "AWOKADO",
+                "MALINY",
+                "NEKTARYNA",
+                "GRAPEFRUIT",
+                "BRZOSKWINI",
+                "LIMONKA",
+                "SLIWKA LUZ",
+                "KIWI",
+                "GRANAT"
             ],
             "Warzywa": [
                 "CEBULA",
@@ -71,33 +137,93 @@
                 "PAPRYKA CZE",
                 "POMIDOR",
                 "SALAT",
-                "BROKUL"
+                "BROKUL",
+                "CUKINIA",
+                "SELER NACI",
+                "RZODKIEWKA",
+                "ZIEMNIAKI",
+                "KALAFIOR",
+                "PAPRYKA ZIE",
+                "PAPRYKA TRI",
+                "IMBIR",
+                "PAK CHOI",
+                "FASOLKA W",
+                "PAPRYKA CZ",
+                "GRZYBY MUN",
+                "RUKOLA MYT",
+                "PAPRYKA ZOL",
+                "NATKA PIETR"
             ],
-            "Przetwory i konserwowane warzywa": []
+            "Przetwory i konserwowane warzywa": [
+                "KIELKI FAS",
+                "POMIDORY S"
+            ]
         },
         "Przyprawy i dodatki": {
             "Przyprawy ": [
                 "LISC LAUROW",
-                "CURRY AUCH"
+                "CURRY AUCH",
+                "ROZMARYN KA",
+                "TYMIANEK KA",
+                "ZIOLA PROWAN",
+                "PRZYPRAWA D",
+                "BAZYLIA AU",
+                "PRZYPRAWA Z",
+                "OREGANO AU",
+                "PIERPRZ AUC",
+                "CHILLI KAMI",
+                "PRZYPRAWA G",
+                "PAPRYKA SL",
+                "PAPRYKA OS",
+                "KOLENDRA KA",
+                "TYMIANEK OT",
+                "KMIN RZYMSK"
             ],
-            "Sosy": [],
+            "Sosy": [
+                "MUSZTARDA",
+                "SOS CHILI OS",
+                "KETCHUP ROL",
+                "SOS CHILI S",
+                "MAJONEZ SPOLEM",
+                "SOS TERIYAK",
+                "SRIRACHA TI",
+                "SOS MONINI",
+                "SOS AGNESI"
+            ],
             "Suszone dodatki": [],
             "Oleje i oliwy": [
                 "OLEJ",
-                ")OLIWA EXT"
+                ")OLIWA EXT",
+                "OLIWA ATHI"
             ],
             "Pasty": [
-                "HUMMUS"
+                "HUMMUS",
+                "PASTA Z SUS"
+            ],
+            "Aromaty": [
+                "AROMAT CIAS"
+            ],
+            "Mleko roślinne": [
+                "COCONUT MILK"
             ]
         },
         "Mrożonki": {
-            "Warzywa mrożone": [],
+            "Warzywa mrożone": [
+                "WARZYW.MROZ",
+                "WARZYW.MRO",
+                "WARZYWA NA"
+            ],
             "Frytki": [
                 "FRYTKI"
             ],
             "Pozostałe Mrożonki": [
                 "ZLOTE PALU",
-                "BIO BERRY"
+                "BIO BERRY",
+                "DANIE MROZ",
+                "OWOCE MROZ."
+            ],
+            "Lody": [
+                "LODY"
             ]
         },
         "Przekąski": {
@@ -107,33 +233,107 @@
             "Ciastka": [],
             "Chipsy": [],
             "Pozostałe słodkie": [
-                "RYZ WISNI"
+                "RYZ WISNI",
+                "MICHALKI",
+                "CUKIERKI MI",
+                "WAFLE JUTR"
             ],
-            "Pozostałe słone": []
+            "Pozostałe słone": [
+                "CHRUPI#CE",
+                "ALGI NORI"
+            ],
+            "Tubki": [
+                "OWSIANKA T",
+                "OWSIANKA B",
+                "MUS CRUNCHY",
+                "OWSIANKA",
+                "PRZEK#SKA",
+                "MUS CRUNCHY",
+                "TUBKA CIACH"
+            ]
         },
         "Dania Gotowe": {
-            "Sosy do makaronów": []
+            "Sosy do makaronów": [
+                "PASSATA",
+                "PESTO Z SU",
+                "PESTO SICI"
+            ],
+            "Ciasto francuskie": [
+                "CIASTO HEN"
+            ],
+            "Pierogi": [
+                "PIEROGI"
+            ],
+            "Vege": [
+                "VEGE"
+            ]
         },
         "Mięso i Ryby": {
             "Mięso": [
-                "UDO Z KURC"
+                "UDO Z KURC",
+                "FILET Z KU",
+                "BOCZEK KLA",
+                "BOCZEK WEDZ",
+                "MIELONE WO"
             ],
-            "Wędlina ": [],
-            "Ryby": [],
+            "Wędlina ": [
+                "SZYNKA",
+                "POLEDWICA"
+            ],
+            "Ryby": [
+                "LOSOS AUCH",
+                "RYBA WEDZON",
+                "LOSOS SW.S"
+            ],
             "Kiełbasa": [
                 "KIELBASA",
-                "KIE[BASA -"
+                "KIE[BASA -",
+                "KIEL GRILL",
+                "KIEL. SL#SK"
+            ],
+            "Kabanosy": [
+                "KABANOSY"
+            ],
+            "Parówki": [
+                "PAROWKI"
             ]
         },
         "Produkty sypkie i suche": {
-            "Kasze": [],
-            "Ryż": [],
+            "Herbaty": [
+                "HERBATA"
+            ],
+            "Kasze": [
+                "KASZA KUSK",
+                "KASZA PECZ",
+                "KUSKUS PERL"
+            ],
+            "Ryż": [
+                "RYZ"
+            ],
             "Makarony": [
                 "MAKARON"
             ],
             "Cukier": [],
             "Strączkowe": [],
-            "Pozostałe sypkie": []
+            "Do pieczenia": [
+                "SODA OCZYSZC",
+                "DROZDZE SUC",
+                "DROZDZE LWO",
+                "MARGARYNA",
+                "PROSZEK DO",
+                "CUKIER WANI"
+            ],
+            "Pozostałe sypkie": [
+                "SIEMIE LNI",
+                "BULKA TART"
+            ],
+            "Mąki": [
+                "M#KA PSZEN"
+            ],
+            "Orzechy": [
+                "RODZYNKI R",
+                "DAKTYLE DA"
+            ]
         },
         "TooGoodToGO": {
             "foodsi": [],
@@ -153,28 +353,62 @@
         },
         "Wyposażenie": {
             "Meble": [],
-            "Agd": [],
-            "Rośliny": [],
-            "Konserwacja": [],
+            "Agd": [
+                "ROZGAL.2X Z/"
+            ],
+            "Rośliny": [
+                "DRABINKA BA",
+                "DONICZKA RA",
+                "OCHR/P.OWAD"
+            ],
+            "Konserwacja": [
+                "WORKI NA SM J",
+                "WORKI"
+            ],
             "Przybory kuchenne": [
-                ")REKAWICA KUC"
+                ")REKAWICA KUC",
+                "REKAW PIEC",
+                "RECZ.KUCH.",
+                "FORMA ACTUE",
+                ")MISKA 13,5",
+                ")MISKA LAVA",
+                ")POJEMNIK",
+                "SCIERKA AUC",
+                "PAT DO SZA",
+                "LEJEK DO S",
+                "ZMYWAK",
+                "SCIERKA KUC",
+                ")SERWETKI"
             ],
             "Pościel": [],
             "Naprawy": [],
-            "Ulepszenia": []
+            "Ulepszenia": [
+                "LAPKA NA MU"
+            ]
         },
         "Ubezpieczenie": {
             "Ubezpieczenie mieszkania": []
         },
         "Środki czystości i chemia": {
             "Chemia": [
-                "PLYN DO NAC"
+                "PLYN DO NAC",
+                "PLYN DO PR.",
+                "KWAS CYTRYN"
             ],
             "Środki czystości": [
                 "SZAMPON",
                 "PAPIER",
                 "ZESTAW PL",
-                "RECZNIK"
+                "RECZNIK",
+                "PLUKANK/UST",
+                "AKC DO ZEB.",
+                "CHUSTECZKI",
+                "SZCZOT/ZEBY",
+                "MYDLO KOSTK",
+                "PASTA DO ZE",
+                "PLATKI HIG.",
+                "COREGA BIO",
+                "MYDLO ZAPAS"
             ]
         }
     },
@@ -197,7 +431,10 @@
             "Planszówki": []
         },
         "Prezenty": {
-            "Prezenty": []
+            "Prezenty": [
+                "TOREBKA PAP",
+                "BRYKIET DRZ"
+            ]
         }
     }
 }
