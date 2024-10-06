@@ -59,7 +59,8 @@
             "Owoce": [
                 "CYTRYNA",
                 "BANAN",
-                "JABLKA"
+                "JABLKA",
+                "BOROWKA"
             ],
             "Warzywa": [
                 "CEBULA",
@@ -69,15 +70,22 @@
                 "CZOSNEK",
                 "PAPRYKA CZE",
                 "POMIDOR",
-                "SALAT"
+                "SALAT",
+                "BROKUL"
             ],
             "Przetwory i konserwowane warzywa": []
         },
         "Przyprawy i dodatki": {
-            "Przyprawy ": [],
+            "Przyprawy ": [
+                "LISC LAUROW",
+                "CURRY AUCH"
+            ],
             "Sosy": [],
             "Suszone dodatki": [],
-            "Oleje i oliwy": [],
+            "Oleje i oliwy": [
+                "OLEJ",
+                ")OLIWA EXT"
+            ],
             "Pasty": [
                 "HUMMUS"
             ]
@@ -88,7 +96,8 @@
                 "FRYTKI"
             ],
             "Pozostałe Mrożonki": [
-                "ZLOTE PALU"
+                "ZLOTE PALU",
+                "BIO BERRY"
             ]
         },
         "Przekąski": {
@@ -119,7 +128,9 @@
         "Produkty sypkie i suche": {
             "Kasze": [],
             "Ryż": [],
-            "Makarony": [],
+            "Makarony": [
+                "MAKARON"
+            ],
             "Cukier": [],
             "Strączkowe": [],
             "Pozostałe sypkie": []
