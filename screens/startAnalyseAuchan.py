@@ -45,10 +45,10 @@ class AuchanAnalyseScreen(Screen):
     def load_file(self, instance):
         input_str = ImagetoText(self.file_name.text)
         last_dot_index = self.file_name.text.rfind('.')
-        date = '1970-01-01'
+        self.date = '1970-01-01'
         if last_dot_index != -1:
-            date = self.file_name.text[:last_dot_index]
-        self.products = Receipt_To_Product(input_str,date)#without set categories
+            self.date = self.file_name.text[:last_dot_index]
+        self.products = Receipt_To_Product(input_str,self.date )#without set categories
         self.ReloadDatabaseButton.disabled = False
         self.LoadFileLabel.text = 'Loaded'
 
@@ -106,5 +106,16 @@ class AuchanAnalyseScreen(Screen):
 
 
     def saveResult(self, instance):
-        print("Here will be saving")
-        #TODO Here count the discount for products
+        print("Saving")
+        from openpyxl.workbook import Workbook
+        workbook_name = self.date+".xlsx"
+        wb = Workbook()
+        page = wb.active
+        page.title = 'events'
+        workbook = Workbook()
+        headers = ['date','cat0','cat1','cat2','name_on_receipt','quant','price','total']
+        page.append(headers) # write the headers to the first line
+        #data = [['description1','date1','time1','location1','latitude1','longitude1']]
+        for p in self.products:
+            page.append(p.To_Array())
+        wb.save(filename = workbook_name)

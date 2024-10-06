@@ -22,7 +22,7 @@ per_item_pattern = f"^{name_pattern}\s{item_count_pattern}\s{item_price_pattern}
 per_kg_pattern = f"^{name_pattern}\s{kg_count_pattern}\s{kg_price_pattern}\s{total_pattern}"
 
 #discount line
-discount_pattern = f"^Rabat\s{name_pattern}\s{code_pattern}\s-{total_pattern}"
+discount_pattern = f"^Rabat\s{name_pattern}\s-{total_pattern}"
 
 #date line
 date_pattern = f"(?P<year>\d\d\d\d)-(?P<month>\d\d)-(?P<day>\d\d)"
@@ -87,7 +87,7 @@ def Receipt_To_Product(input_str, date):
             if (round(item*peritem,2) != round(total, 2)):
                 print(f"total isn't equal {n} in {q} x {p} != {t}")
             total_sum += total
-            products.append(Product(date, n,c,q,p,t))
+            products.append(Product(date, n,c,item,peritem,total))
             continue
         match = re.search(per_kg_pattern, line)
         if (match):
@@ -106,16 +106,24 @@ def Receipt_To_Product(input_str, date):
             if (round(kg*perkg,2) != round(total, 2)):
                 print(f"total isn't equal {n} in {k} x {p} != {t}")
             total_sum += total
-            products.append(Product(date,n,c,k,p,t))
+            products.append(Product(date,n,c,kg,perkg,total))
             continue
         match = re.search(discount_pattern, line)
 
         #discount
         if (match):
-            n, c, p = match.groups()
+            name_and_code, p = match.groups()
+            n = ""
+            c = ""
+            submatch = re.search(name_and_code_pattern, name_and_code)
+            if (submatch):
+                n, c = submatch.groups()
+            else:
+                n = name_and_code
             print("znizka: "+n+"  "+p)
             total = str_to_float(p)
             total_sum -= total
+            products.append(Product(date,n,c,0,0,-total))
             #TODO Add handling reducted price
             continue
 
