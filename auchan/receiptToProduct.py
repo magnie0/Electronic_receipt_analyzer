@@ -24,6 +24,12 @@ per_kg_pattern = f"^{name_pattern}\s{kg_count_pattern}\s{kg_price_pattern}\s{tot
 #discount line
 discount_pattern = f"^Rabat\s{name_pattern}\s{code_pattern}\s-{total_pattern}"
 
+#date line
+date_pattern = f"(?P<year>\d\d\d\d)-(?P<month>\d\d)-(?P<day>\d\d)"
+
+#line that shouldn;t be parsing as product starts with
+last_line_pattern = f"SPRZEDAZ OPODATK"
+
 #name_and_code
 name_and_code_pattern = f"{name_pattern}\s{code_pattern}"
 
@@ -33,15 +39,37 @@ sum_pattern = f"^SUMA\sPLN\s{total_pattern}"
 def str_to_float(s):
     return float(s.replace(',','.'))
 def Receipt_To_Product(input_str, date):
-    print(input_str)
     data = input_str.splitlines()
     other_lines = [] #for checking if sth isn't caught
     total_sum = 0
     products = []
     sum_from_receipt = 0
+
+    check_line = False
     for line in data:
         if (line == ""):
             continue
+
+        match = re.search(date_pattern, line)
+        if (match):
+            y, m, d = match.groups()
+            check_line = True
+            #TODO check date
+            continue
+
+        match = re.search(sum_pattern, line)
+        if (match):
+            t = match.group(1)
+            sum_from_receipt = str_to_float(t)
+        
+        match = re.search(last_line_pattern, line)
+        if (match):
+            check_line = False
+        
+        if not check_line:
+            continue
+
+        #products
         match = re.search(per_item_pattern, line)
         if (match):
             name_and_code, q, p, t = match.groups()
@@ -51,7 +79,6 @@ def Receipt_To_Product(input_str, date):
             if (submatch):
                 n, c = submatch.groups()
             else:
-                print(f"Code not found name{name_and_code}")
                 n = name_and_code
             #print(f"PerItem {n} {c} {q} {p} {t}")
             item = str_to_float(q)
@@ -71,7 +98,7 @@ def Receipt_To_Product(input_str, date):
             if (submatch):
                 n, c = submatch.groups()
             else:
-                print(f"Code not found name{name_and_code}")
+                n = name_and_code
             #print(f"PerKg {n} {c} {k} {p} {t}")
             kg = str_to_float(k)
             perkg = str_to_float(p)
@@ -82,6 +109,8 @@ def Receipt_To_Product(input_str, date):
             products.append(Product(date,n,c,k,p,t))
             continue
         match = re.search(discount_pattern, line)
+
+        #discount
         if (match):
             n, c, p = match.groups()
             print("znizka: "+n+"  "+p)
@@ -89,17 +118,13 @@ def Receipt_To_Product(input_str, date):
             total_sum -= total
             #TODO Add handling reducted price
             continue
-        match = re.search(sum_pattern, line)
-        if (match):
-            t = match.group(1)
-            sum_from_receipt = str_to_float(t)
-            print("laczna suma: "+t)
-
 
         other_lines.append(line)
+    
+    print("------ Other found lines ------")
+    print("\n".join(other_lines))
+    print("------ End of other found lines ------")
+
     print("suma_dodana: "+str(round(total_sum,2)))
     print("suma_z_paragonu: "+str(round(sum_from_receipt,2)))
-    print("===============Other found lines")
-    print("\n".join(other_lines))
-
     return products
