@@ -16,13 +16,16 @@ kg_price_pattern = r"x(?P<perKg>\d+,\d\d)"
 total_pattern = r"(?P<total>\d+,\d\d)"
 
 #peritem
-per_item_pattern = f"^{name_pattern}\s{code_pattern}\s{item_count_pattern}\s{item_price_pattern}\s{total_pattern}"
+per_item_pattern = f"^{name_pattern}\s{item_count_pattern}\s{item_price_pattern}\s{total_pattern}"
 
 #perkg
-per_kg_pattern = f"^{name_pattern}\s{code_pattern}\s{kg_count_pattern}\s{kg_price_pattern}\s{total_pattern}"
+per_kg_pattern = f"^{name_pattern}\s{kg_count_pattern}\s{kg_price_pattern}\s{total_pattern}"
 
 #discount line
 discount_pattern = f"^Rabat\s{name_pattern}\s{code_pattern}\s-{total_pattern}"
+
+#name_and_code
+name_and_code_pattern = f"{name_pattern}\s{code_pattern}"
 
 #sum
 sum_pattern = f"^SUMA\sPLN\s{total_pattern}"
@@ -30,6 +33,7 @@ sum_pattern = f"^SUMA\sPLN\s{total_pattern}"
 def str_to_float(s):
     return float(s.replace(',','.'))
 def Receipt_To_Product(input_str, date):
+    print(input_str)
     data = input_str.splitlines()
     other_lines = [] #for checking if sth isn't caught
     total_sum = 0
@@ -40,7 +44,15 @@ def Receipt_To_Product(input_str, date):
             continue
         match = re.search(per_item_pattern, line)
         if (match):
-            n, c, q, p, t = match.groups()
+            name_and_code, q, p, t = match.groups()
+            n = ""
+            c = ""
+            submatch = re.search(name_and_code_pattern, name_and_code)
+            if (submatch):
+                n, c = submatch.groups()
+            else:
+                print(f"Code not found name{name_and_code}")
+                n = name_and_code
             #print(f"PerItem {n} {c} {q} {p} {t}")
             item = str_to_float(q)
             peritem = str_to_float(p)
@@ -52,7 +64,14 @@ def Receipt_To_Product(input_str, date):
             continue
         match = re.search(per_kg_pattern, line)
         if (match):
-            n, c, k, p, t = match.groups()
+            name_and_code, k, p, t = match.groups()
+            n = ""
+            c = ""
+            submatch = re.search(name_and_code_pattern, name_and_code)
+            if (submatch):
+                n, c = submatch.groups()
+            else:
+                print(f"Code not found name{name_and_code}")
             #print(f"PerKg {n} {c} {k} {p} {t}")
             kg = str_to_float(k)
             perkg = str_to_float(p)
