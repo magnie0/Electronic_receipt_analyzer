@@ -80,3 +80,4 @@ class AuchanAnalyseScreen(Screen):
         for p in self.products:
             page.append(p.To_Array())
         wb.save(filename = workbook_name)
+        print("Saved")

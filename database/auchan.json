@@ -15,7 +15,8 @@
                 "PIwWO 0% LEC",
                 "PIwWO",
                 "PIwO",
-                "PIWO 0% WA"
+                "PIWO 0% WA",
+                "PIWO ACTIVE"
             ],
             "Soki": [
                 "SOK"
@@ -26,7 +27,8 @@
                 "MUS JAB-PO",
                 "NAPOJ GAZ C",
                 "NAPOJ GAZ",
-                "NAPOJ GAZ. P"
+                "NAPOJ GAZ. P",
+                "KWAS SLOWIA"
             ],
             "Pozostałe napoje ": [],
             "Opakowania zwrotne": [
@@ -43,11 +45,14 @@
                 "CYDR POLSKI",
                 "CYDR BURSZT",
                 ")CYDR TERR",
-                "PERRY BURSZ"
+                "PERRY BURSZ",
+                "CYDR",
+                "PERRY BURS"
             ],
             "Wino": [
                 "WINI ZAMOJ.WIS.0,7",
-                "WINIR.ZAM.ROSE.0,7"
+                "WINIR.ZAM.ROSE.0,7",
+                "WZ AGREST 0,75"
             ],
             "Nalewki": [
                 "LIKIER AUCH"
@@ -62,7 +67,9 @@
             ],
             "Jogurty": [
                 "MASLANKA",
-                "JOGURT"
+                "JOGURT",
+                "7 ZBOZ MEN",
+                "JOG KREM B"
             ],
             "Skyry": [
                 "JOGURT SKY"
@@ -78,7 +85,9 @@
                 "SEREK Z KU",
                 "SEREK POMI",
                 "SEREK ZIOLO",
-                "SEREK Z PO"
+                "SEREK Z PO",
+                "SEREK WANI",
+                "DELIKATNY"
             ],
             "Masło": [
                 "MASLO"
@@ -99,7 +108,8 @@
             "Twaróg": [
                 "TWAROG POLTL",
                 "SEREK WIEJ",
-                "TWAROG MIEL"
+                "TWAROG MIEL",
+                "TWAROG SOL"
             ]
         },
         "Pieczywo": {
@@ -153,7 +163,11 @@
                 "GRZYBY MUN",
                 "RUKOLA MYT",
                 "PAPRYKA ZOL",
-                "NATKA PIETR"
+                "NATKA PIETR",
+                "MIX GRILLOWY",
+                "PAPRYKA PE",
+                "PAPRYKA KRE",
+                "POMIDORY"
             ],
             "Przetwory i konserwowane warzywa": [
                 "KIELKI FAS",
@@ -178,12 +192,13 @@
                 "PAPRYKA OS",
                 "KOLENDRA KA",
                 "TYMIANEK OT",
-                "KMIN RZYMSK"
+                "KMIN RZYMSK",
+                "ZIOLA PROWA"
             ],
             "Sosy": [
                 "MUSZTARDA",
                 "SOS CHILI OS",
-                "KETCHUP ROL",
+                "KETCHUP",
                 "SOS CHILI S",
                 "MAJONEZ SPOLEM",
                 "SOS TERIYAK",
@@ -233,7 +248,9 @@
                 "CZEKOLADA"
             ],
             "Ciastka": [],
-            "Chipsy": [],
+            "Chipsy": [
+                ")BEZGL TOR"
+            ],
             "Pozostałe słodkie": [
                 "RYZ WISNI",
                 "MICHALKI",
@@ -276,7 +293,8 @@
                 "FILET Z KU",
                 "BOCZEK KLA",
                 "BOCZEK WEDZ",
-                "MIELONE WO"
+                "MIELONE WO",
+                "MIESO Z NO"
             ],
             "Wędlina ": [
                 "SZYNKA",
@@ -285,7 +303,8 @@
             "Ryby": [
                 "LOSOS AUCH",
                 "RYBA WEDZON",
-                "LOSOS SW.S"
+                "LOSOS SW.S",
+                "ZLOTE PALUS"
             ],
             "Kiełbasa": [
                 "KIELBASA",
@@ -323,7 +342,8 @@
                 "DROZDZE LWO",
                 "MARGARYNA",
                 "PROSZEK DO",
-                "CUKIER WANI"
+                "CUKIER WANI",
+                "DROZDZE"
             ],
             "Pozostałe sypkie": [
                 "SIEMIE LNI",
@@ -335,7 +355,8 @@
             "Orzechy": [
                 "RODZYNKI R",
                 "DAKTYLE DA",
-                "MIESZANKA O"
+                "MIESZANKA O",
+                "FITNESS MIX"
             ]
         },
         "TooGoodToGO": {
@@ -381,7 +402,8 @@
                 "LEJEK DO S",
                 "ZMYWAK",
                 "SCIERKA KUC",
-                ")SERWETKI"
+                ")SERWETKI",
+                ")PATELNIA"
             ],
             "Pościel": [],
             "Naprawy": [],
@@ -389,7 +411,8 @@
                 "LAPKA NA MU"
             ],
             "Dodatki": [
-                "SW.PIE K.120/58 LA"
+                "SW.PIE K.120/58 LA",
+                "AKC. PISMIE"
             ]
         },
         "Ubezpieczenie": {
@@ -399,7 +422,9 @@
             "Chemia": [
                 "PLYN DO NAC",
                 "PLYN DO PR.",
-                "KWAS CYTRYN"
+                "KWAS CYTRYN",
+                "PREP .NA OC",
+                "PLYN DO WC"
             ],
             "Środki czystości": [
                 "SZAMPON",
@@ -414,7 +439,10 @@
                 "PASTA DO ZE",
                 "PLATKI HIG.",
                 "COREGA BIO",
-                "MYDLO ZAPAS"
+                "MYDLO ZAPAS",
+                "ZEL P/P HIP",
+                "SZCZOTECZK",
+                "PLYN DO US"
             ]
         }
     },

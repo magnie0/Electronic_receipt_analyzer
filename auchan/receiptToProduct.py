@@ -6,6 +6,8 @@
 #per_kg_pattern = "^(?P<name>.+)\s(?P<code>\d{6}[A-Z]?)\s(?P<weight>\d,\d\d\d)\s-?x(?P<perKg>\d+,\d\d)\s(?P<total>\d+,\d\d)"
 import re
 from utils.product import Product
+import datetime
+
 #regexes for product lines
 name_pattern = r"(?P<name>.+)"
 code_pattern = r"(?P<code>\d{3,6}.?)" #last char sometimes is as ] we don't use the code product so it isn't important for us
@@ -54,7 +56,8 @@ def Receipt_To_Product(input_str, date):
         if (match):
             y, m, d = match.groups()
             check_line = True
-            #TODO check date
+            date =  f"{y}-{m}-{d}"
+
             continue
 
         match = re.search(sum_pattern, line)
